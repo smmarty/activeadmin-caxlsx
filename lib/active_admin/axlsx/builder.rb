@@ -63,7 +63,7 @@ module ActiveAdmin
       end
 
       def default_style
-        @default_style ||= { :bg_color => 'FF', :sz => 10 }
+        @default_style ||= { }
       end
 
       def default_style=(style_hash)
