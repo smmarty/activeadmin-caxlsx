@@ -115,7 +115,7 @@ ActiveAdmin.register Post do
       end
     }
 
-    # iserting data with before_filter
+    # inserting data with before_filter
     before_filter do |sheet|
       sheet.add_row ['Created', Time.zone.now]
       sheet.add_row []

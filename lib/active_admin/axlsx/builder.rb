@@ -62,6 +62,14 @@ module ActiveAdmin
         @header_style = header_style.merge(style_hash)
       end
 
+      def default_style
+        @default_style ||= { :bg_color => 'FF', :sz => 10 }
+      end
+
+      def default_style=(style_hash)
+        @default_style = default_style.merge(style_hash)
+      end
+
       # Indicates that we do not want to serialize the column headers
       def skip_header
         @skip_header = true
@@ -168,7 +176,7 @@ module ActiveAdmin
       def export_collection(collection)
         header_row(collection) unless @skip_header
         collection.each do |resource|
-          sheet.add_row resource_data(resource)
+          sheet.add_row resource_data(resource), { :style => default_style_id }
         end
       end
 
@@ -216,6 +224,10 @@ module ActiveAdmin
 
       def header_style_id
         package.workbook.styles.add_style header_style
+      end
+
+      def default_style_id
+        package.workbook.styles.add_style default_style
       end
 
       def resource_columns(resource)
