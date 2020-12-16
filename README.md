@@ -1,4 +1,4 @@
-# Active Admin Axlsx
+# Active Admin Caxlsx
 
 ## Notice: Community Axlsx Organization
 
@@ -9,17 +9,17 @@ To better maintain the Axlsx ecosystem, all related gems have been forked or mov
 ## Synopsis
 
 This gem provides automatic OOXML (xlsx) downloads for Active Admin
-resources. It lets you harness the full power of Axlsx when you want to
+resources. It lets you harness the full power of Caxlsx when you want to
 but for the most part just stays out of your way and adds a link next to
 the csv download for xlsx (Excel/numbers/Libre Office/Google Docs)
 
-![Screen 1](https://github.com/randym/activeadmin-axlsx/raw/master/screen_capture.png)
+![Screen 1](https://raw.githubusercontent.com/caxlsx/caxlsx/master/examples/sample.png)
 
 ## Install
 Add the following to your Gemfile
 
 ```
-gem 'activeadmin-axlsx'
+gem 'activeadmin-caxlsx', github: 'https://github.com/KRaikk/activeadmin-caxlsx'
 ```
 
 All resource index views will now include a link for XLSX download
@@ -133,6 +133,6 @@ bundle exec rake
 
 Originally created by Randy Morgan - @randym
 
-Forked in 2019, to enable the community to maintain the Axlsx ecosystem - http://github.com/caxlsx
+Forked in 2020, to enable the community to maintain the Caxlsx ecosystem - http://github.com/caxlsx
 
 Open source software is a community effort. None of this could have been done without the help of [our Contributors](https://github.com/caxlsx/activeadmin-caxlsx/graphs/contributors).

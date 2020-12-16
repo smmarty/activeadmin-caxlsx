@@ -1,9 +1,9 @@
 require 'active_admin'
-require 'active_admin/axlsx/version'
-require 'active_admin/axlsx/builder'
-require 'active_admin/axlsx/dsl'
-require 'active_admin/axlsx/resource_extension'
-require 'active_admin/axlsx/resource_controller_extension'
+require 'active_admin/caxlsx/version'
+require 'active_admin/caxlsx/builder'
+require 'active_admin/caxlsx/dsl'
+require 'active_admin/caxlsx/resource_extension'
+require 'active_admin/caxlsx/resource_controller_extension'
 
 class Railtie < ::Rails::Railtie
   config.before_initialize do
@@ -19,10 +19,10 @@ class Railtie < ::Rails::Railtie
   end
 
   config.after_initialize do
-    ActiveAdmin::ResourceDSL.send :include, ActiveAdmin::Axlsx::DSL
-    ActiveAdmin::Resource.send :include, ActiveAdmin::Axlsx::ResourceExtension
+    ActiveAdmin::ResourceDSL.send :include, ActiveAdmin::Caxlsx::DSL
+    ActiveAdmin::Resource.send :include, ActiveAdmin::Caxlsx::ResourceExtension
     ActiveAdmin::Views::PaginatedCollection.add_format :xlsx
-    ActiveAdmin::ResourceController.send :include, ActiveAdmin::Axlsx::ResourceControllerExtension
+    ActiveAdmin::ResourceController.send :include, ActiveAdmin::Caxlsx::ResourceControllerExtension
   end
 end
 
