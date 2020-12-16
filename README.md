@@ -19,10 +19,14 @@ the csv download for xlsx (Excel/numbers/Libre Office/Google Docs)
 Add the following to your Gemfile
 
 ```
-gem 'activeadmin-caxlsx', github: 'https://github.com/KRaikk/activeadmin-caxlsx'
+gem 'activeadmin-caxlsx', git: 'https://github.com/KRaikk/activeadmin-caxlsx'
 ```
 
-All resource index views will now include a link for XLSX download
+For Active Admin 1.0 and above, you will also have to update config/initializers/active_admin.rb. Update the download_links setting to include xlsx:
+
+```
+config.download_links = %i[csv xml json xlsx]
+```
 
 
 ## Localize Column Headers
