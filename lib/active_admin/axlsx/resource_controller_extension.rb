@@ -6,12 +6,14 @@ module ActiveAdmin
       end
 
       # patching the index method to allow the xlsx format.
-      def index_with_xlsx(options={}, &block)
-        index_without_xlsx(options) do |format|
-           format.xlsx do
-            xlsx = active_admin_config.xlsx_builder.serialize(collection)
-            send_data xlsx, :filename => "#{xlsx_filename}", :type => Mime::Type.lookup_by_extension(:xlsx)
+      def index
+        super do |format|
+          format.xlsx do
+            xlsx = active_admin_config.xlsx_builder.serialize(xlsx_collection, view_context)
+            send_data xlsx, filename: xlsx_filename, type: Mime::Type.lookup_by_extension(:xlsx)
           end
+
+          yield(format) if block_given?
         end
       end
 
@@ -27,6 +29,11 @@ module ActiveAdmin
       # and current date such as 'my-articles-2011-06-24.xlsx'.
       def xlsx_filename
         "#{resource_collection_name.to_s.gsub('_', '-')}-#{Time.now.strftime("%Y-%m-%d")}.xlsx"
+      end
+
+      # Returns the collection to use when generating an xlsx file.
+      def xlsx_collection
+        find_collection except: :pagination
       end
     end
   end

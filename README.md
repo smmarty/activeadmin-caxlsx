@@ -1,4 +1,6 @@
-# Active Admin Caxlsx
+# Active Admin Caxlsx (Alpha version)
+
+- Upgraded activeadmin-axlsx to work with most recent version of Caxlsx.
 
 ## Notice: Community Axlsx Organization
 
@@ -123,7 +125,7 @@ end
 ```
 
 ## Specs
-------
+
 Running specs for this gem requires that you construct a rails application.
 To execute the specs, navigate to the gem directory, then run bundle install and run these two rake tasks:
 
@@ -133,7 +135,6 @@ bundle exec rake
 ```
 
 ## Credits
-----------
 
 Originally created by Randy Morgan - @randym
 
