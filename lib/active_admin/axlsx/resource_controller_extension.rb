@@ -1,5 +1,5 @@
 module ActiveAdmin
-  module Caxlsx
+  module Axlsx
     module ResourceControllerExtension
       def self.included(base)
         base.send :alias_method, :per_page, :xlsx

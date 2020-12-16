@@ -1,7 +1,7 @@
 require 'spec_helper'
 
 module ActiveAdmin
-  module Caxlsx
+  module Axlsx
     describe ::ActiveAdmin::ResourceDSL do
       context 'in a registraiton block' do
         let(:builder) {

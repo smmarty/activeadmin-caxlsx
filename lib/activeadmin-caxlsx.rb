@@ -1,1 +1,1 @@
-require 'active_admin/caxlsx.rb'
+require 'active_admin/axlsx.rb'

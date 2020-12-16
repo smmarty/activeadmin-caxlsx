@@ -1,7 +1,7 @@
 require 'axlsx'
 
 module ActiveAdmin
-  module Caxlsx
+  module Axlsx
     # Builder for xlsx data using the axlsx gem.
     class Builder
 
@@ -11,13 +11,13 @@ module ActiveAdmin
       # @param [Hash] options the options for this builder
       # @option [Hash] :header_style - a hash of style properties to apply
       #   to the header row. Any properties specified will be merged with the default
-      #   header styles. @see Caxlsx::Styles#add_style
+      #   header styles. @see Axlsx::Styles#add_style
       # @option [Array] :i18n_scope - the I18n scope to use when looking
       #   up localized column headers.
       # @param [Block] Any block given will evaluated against this instance of Builder.
       #   That means you can call any method on the builder from withing that block.
       # @example
-      #   ActiveAdmin::Caxlsx:Builder.new(Post, i18n: [:axlsx]) do
+      #   ActiveAdmin::Axlsx:Builder.new(Post, i18n: [:axlsx]) do
       #     delete_columns :id, :created_at, :updated_at
       #     column(:author_name) { |post| post.author.name }
       #     column(:
@@ -32,14 +32,14 @@ module ActiveAdmin
       #         sheet.add_row [labels.last, data.last]
       #       end
       #       chart_color =  %w(88F700, 279CAC, B2A200, FD66A3, F20062, C8BA2B, 67E6F8, DFFDB9, FFE800, B6F0F8)
-      #       sheet.add_chart(Caxlsx::Pie3DChart, :title => "post by author") do |chart|
+      #       sheet.add_chart(Axlsx::Pie3DChart, :title => "post by author") do |chart|
       #         chart.add_series :data => data, :labels => labels, :colors => chart_color
       #         chart.start_at 2, sheet.rows.size
       #         chart.end_at 3, sheet.rows.size + 20
       #       end
       #     }
       #   end
-      #   @see ActiveAdmin::Caxlsx::DSL
+      #   @see ActiveAdmin::Axlsx::DSL
       def initialize(resource_class, options={}, &block)
         @skip_header = false
         @columns = resource_columns(resource_class)
@@ -127,7 +127,7 @@ module ActiveAdmin
       end
 
       # Serializes the collection provided
-      # @return [Caxlsx::Package]
+      # @return [Axlsx::Package]
       def serialize(collection)
         @collection = collection
         apply_filter @before_filter
@@ -211,7 +211,7 @@ module ActiveAdmin
       end
 
       def package
-        @package ||= ::Caxlsx::Package.new(:use_shared_strings => true)
+        @package ||= ::Axlsx::Package.new(:use_shared_strings => true)
       end
 
       def header_style_id

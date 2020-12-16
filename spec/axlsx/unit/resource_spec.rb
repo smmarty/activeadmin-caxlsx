@@ -2,7 +2,7 @@ require 'spec_helper'
 include ActiveAdmin
 
 module ActiveAdmin
-  module Caxlsx
+  module Axlsx
     describe Resource do
       let(:resource) { ActiveAdmin.register(Post) }
 

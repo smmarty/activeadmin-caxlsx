@@ -1,7 +1,7 @@
 require 'spec_helper'
 
 module ActiveAdmin
-  module Caxlsx
+  module Axlsx
     describe Builder do
 
       let(:builder) { Builder.new(Post) }
@@ -59,7 +59,7 @@ module ActiveAdmin
         let!(:posts) {  [Post.new(title: 'bob', body: 'is a swell guy', author: users.first)] }
 
         let!(:builder) {
-          Builder.new(Post, header_style: { sz: 10, fg_color: "FF0000" }, i18n_scope: [:caxlsx, :post]) do
+          Builder.new(Post, header_style: { sz: 10, fg_color: "FF0000" }, i18n_scope: [:axlsx, :post]) do
             skip_header
           end
         }
@@ -86,7 +86,7 @@ module ActiveAdmin
         let!(:posts) {  [Post.new(title: 'bob', body: 'is a swell guy', author: users.first)] }
 
         let!(:builder) {
-          Builder.new(Post, header_style: { sz: 10, fg_color: "FF0000" }, i18n_scope: [:caxlsx, :post]) do
+          Builder.new(Post, header_style: { sz: 10, fg_color: "FF0000" }, i18n_scope: [:axlsx, :post]) do
             skip_header
             whitelist
             column :title
@@ -117,7 +117,7 @@ module ActiveAdmin
         let!(:posts) {  [Post.new(title: 'bob', body: 'is a swell guy', author: users.first)] }
 
         let!(:builder) {
-          Builder.new(Post, header_style: { sz: 10, fg_color: "FF0000" }, i18n_scope: [:caxlsx, :post]) do
+          Builder.new(Post, header_style: { sz: 10, fg_color: "FF0000" }, i18n_scope: [:axlsx, :post]) do
             delete_columns :id, :created_at, :updated_at
             column(:author) { |resource| "#{resource.author.first_name} #{resource.author.last_name}" }
             after_filter { |sheet|
@@ -131,7 +131,7 @@ module ActiveAdmin
                 sheet.add_row [labels.last, data.last]
               end
               chart_color =  %w(88F700 279CAC B2A200 FD66A3 F20062 C8BA2B 67E6F8 DFFDB9 FFE800 B6F0F8)
-              sheet.add_chart(::Caxlsx::Pie3DChart, :title => "post by author") do |chart|
+              sheet.add_chart(::Axlsx::Pie3DChart, :title => "post by author") do |chart|
                 chart.add_series :data => data, :labels => labels, :colors => chart_color
                 chart.start_at 4, 0
                 chart.end_at 7, 20
@@ -166,7 +166,7 @@ module ActiveAdmin
         end
 
         it 'uses the specified i18n_scope' do
-          builder.i18n_scope.should == [:caxlsx, :post]
+          builder.i18n_scope.should == [:axlsx, :post]
         end
 
         it 'translates the header row based on our i18n scope' do

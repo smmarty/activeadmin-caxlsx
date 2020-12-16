@@ -1,8 +1,8 @@
 require 'rake'
-require File.expand_path('../lib/active_admin/caxlsx/version', __FILE__)
+require File.expand_path('../lib/active_admin/axlsx/version', __FILE__)
 Gem::Specification.new do |s|
   s.name        = 'activeadmin-caxlsx'
-  s.version     = ActiveAdmin::Caxlsx::VERSION
+  s.version     = ActiveAdmin::Axlsx::VERSION
   s.author	    = "Alex Eguia"
   s.email       = 'alex@alexeguia.net'
   s.homepage   	= 'https://github.com/KRaikk/activeadmin-caxlsx'

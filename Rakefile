@@ -15,9 +15,9 @@ task :test => :spec
 
 desc "build the gem"
 task :build do
-  system "gem build activeadmin-axlsx.gemspec"
+  system "gem build activeadmin-caxlsx.gemspec"
 end
 desc "build and release the gem"
 task :release => :build do
-  system "gem push activeadmin-axlsx-#{ActiveAdmin::Caxlsx::VERSION}.gem"
+  system "gem push activeadmin-caxlsx-#{ActiveAdmin::Axlsx::VERSION}.gem"
 end
