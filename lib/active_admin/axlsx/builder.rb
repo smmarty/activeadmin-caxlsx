@@ -149,7 +149,7 @@ module ActiveAdmin
       class Column
 
         def initialize(name, block = nil)
-          @name = name.to_sym
+          @name = name
           @data = block || @name
         end
 
