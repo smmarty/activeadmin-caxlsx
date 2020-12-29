@@ -139,7 +139,7 @@ module ActiveAdmin
       def serialize(collection)
         @collection = collection
         apply_filter @before_filter
-        export_collection(collection)
+        export_collection(@collection)
         apply_filter @after_filter
         to_stream
       end
