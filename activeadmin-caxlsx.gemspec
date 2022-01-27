@@ -1,4 +1,3 @@
-require 'rake'
 require File.expand_path('../lib/active_admin/axlsx/version', __FILE__)
 Gem::Specification.new do |s|
   s.name        = 'activeadmin-caxlsx'
@@ -10,11 +9,7 @@ Gem::Specification.new do |s|
   s.date        = Time.now.strftime('%Y-%m-%d')
   s.license     = 'MIT'
   s.summary     = "Adds excel downloads for resources within the Active Admin framework via Caxlsx."
-  s.description = <<-eof
-  This gem uses axlsx to provide excel/xlsx downloads for resources in Active Admin. Often, users are happier with excel, so why not give it to them instead of CSV?
-  eof
-  s.files       = `git ls-files`.split("\n").sort 
-  s.test_files  = `git ls-files -- {spec}/*`.split("\n")
+  s.description = "This gem uses axlsx to provide excel/xlsx downloads for resources in Active Admin. Often, users are happier with excel, so why not give it to them instead of CSV?"
   s.test_files  = Dir.glob("{spec/**/*}")
 
   s.add_runtime_dependency 'activeadmin', ">= 0.6.0"
