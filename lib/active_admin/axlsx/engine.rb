@@ -14,10 +14,12 @@ module ActiveAdmin
 
         ActiveAdmin::ResourceDSL.send :include, ActiveAdmin::Axlsx::DSL
         ActiveAdmin::Resource.send :include, ActiveAdmin::Axlsx::ResourceExtension
-        ActiveAdmin::ResourceController.send(
+        ActiveSupport.on_load(:after_initialize) do
+          ActiveAdmin::ResourceController.send(
             :prepend,
             ActiveAdmin::Axlsx::ResourceControllerExtension
-        )
+          )
+        end
       end
     end
   end
