@@ -40,11 +40,15 @@ module ActiveAdmin
       #     }
       #   end
       #   @see ActiveAdmin::Axlsx::DSL
-      def initialize(resource_class, options={}, &block)
+      def initialize(resource_class, options = {}, &block)
         @skip_header = false
-        @columns = resource_columns(resource_class)
+        @resource_class = resource_class
         parse_options options
-        instance_eval &block if block_given?
+        instance_eval(&block) if block_given?
+      end
+
+      def columns
+        @columns ||= resource_columns(@resource_class)
       end
 
       # The default header style
@@ -82,7 +86,7 @@ module ActiveAdmin
 
       # This is the I18n scope that will be used when looking up your
       # colum names in the current I18n locale.
-      # If you set it to [:active_admin, :resources, :posts] the 
+      # If you set it to [:active_admin, :resources, :posts] the
       # serializer will render the value at active_admin.resources.posts.title in the
       # current translations
       # @note If you do not set this, the column name will be titleized.
