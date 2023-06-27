@@ -21,7 +21,7 @@ the csv download for xlsx (Excel/numbers/Libre Office/Google Docs)
 Add the following to your Gemfile
 
 ```
-gem 'activeadmin-caxlsx', git: 'https://github.com/KRaikk/activeadmin-caxlsx'
+gem 'activeadmin-caxlsx', git: 'https://github.com/smmarty/activeadmin-caxlsx'
 ```
 
 For Active Admin 1.0 and above, you will also have to update config/initializers/active_admin.rb. Update the download_links setting to include xlsx:
